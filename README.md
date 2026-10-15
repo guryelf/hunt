@@ -124,6 +124,13 @@ to a private remote.
 The deterministic half of the loop — AI orchestrates, these verbs are
 the only write paths.
 
+`uv run hunt …` runs the `hunt` CLI inside the repo's uv-managed
+Python environment (`.venv/`: the right interpreter plus pinned
+dependencies, isolated from the system). `source .venv/bin/activate`
+once per shell and plain `hunt …` works too. Either way, run from the
+repo root — `hunt` resolves `state.db` and the spec layer from the
+current directory.
+
 **Gated writes (the only way a job enters):**
 
 ```console
