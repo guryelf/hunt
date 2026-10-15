@@ -1,0 +1,23 @@
+# hunt profile — facts and global constraints every track inherits.
+# The gate reads this file; keep it factual. Narrative notes belong in
+# comments, never in the gate's way.
+#
+# EXAMPLE DATA — /setup replaces it with yours. After onboarding this
+# file holds personal facts again: commit it only to a private remote.
+
+name: Deniz Kaya
+
+base:
+  city: Ankara
+  country: TR
+
+# Languages drive the language gate. A posting requiring a language not
+# listed here is rejected; one requiring a higher level than declared is
+# flagged for the human, not rejected.
+languages:
+  TR: native
+  EN: advanced   # full professional
+
+# Hard personal deal-breakers, merged into every gate evaluation on top
+# of each track's exclude_countries.
+never_countries: []

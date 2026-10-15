@@ -1,0 +1,22 @@
+# state is data, not spec — never commit it
+*.db
+*.db-journal
+state.db*
+
+# application documents are personal (master CV, per-application drafts,
+# archived postings); the machinery that works on them is materials/
+documents/
+
+# run artifacts
+runs/
+backups/
+
+# secrets
+.env
+
+# python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/

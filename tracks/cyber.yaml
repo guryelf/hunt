@@ -1,0 +1,65 @@
+# hunt: cybersecurity track
+#
+# The contract for every "/hunt cyber" run: the orchestrator reads this
+# file to plan searches; the gate reads it to enforce the results.
+# Edit the data — never the prompts. Prompts are generated; constraints
+# are not negotiable.
+#
+# EXAMPLE DATA — /setup replaces it with yours.
+
+track: cyber
+display: Cybersecurity
+
+# Defaults inherited by every intent below (an intent may override).
+
+defaults:
+  countries: [TR]                  # ISO-3166 allowlist for on-site roles
+  exclude_countries: []             # hard reject even if "remote-friendly" is claimed
+  exclude_boards: [djinni.co]       # unreliable source (2026-10-15 incident)
+  remote: anchored                  # remote OK only when anchored to an allowed country
+  relocation:
+    countries: [DE, NL]             # on-site abroad acceptable only here ...
+    requires: [visa_support]        # ... and only with relocation/visa support
+  employment: [full_time, contract]
+  seniority: [junior, mid]
+  max_age_days: 14                  # unknown posting dates are flagged, not rejected
+
+intents:
+
+  - name: soc-analyst
+    role: SOC / security analyst
+    keywords:
+      - SOC Analyst
+      - Security Analyst
+      - Siber Güvenlik Analisti
+      - SOC Analisti
+      - Bilgi Güvenliği Analisti
+    ai_search_hints:               # seeds only — the orchestrator varies phrasing beyond these
+      - junior SOC analyst opportunities Türkiye
+      - entry-level security operations roles in Türkiye
+
+  - name: offensive-security
+    role: penetration testing / red team / vulnerability research
+    keywords:
+      - Penetration Tester
+      - Junior Pentester
+      - Ethical Hacker
+      - Sızma Testi
+      - Penetrasyon Testi
+      - Zafiyet Analisti
+      - Red Team
+    ai_search_hints:
+      - junior penetration tester jobs Türkiye
+      - ethical hacker roles Türkiye
+
+  - name: detection-engineering
+    role: detection engineering / threat hunting / security analytics
+    keywords:
+      - Detection Engineer
+      - Threat Hunter
+      - Malware Analyst
+      - Siber Güvenlik Mühendisi
+      - Security Data Analyst
+    ai_search_hints:
+      - detection engineer jobs Türkiye
+      - threat hunting roles Türkiye

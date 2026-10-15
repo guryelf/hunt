@@ -1,0 +1,32 @@
+# hunt: web development track
+#
+# EXAMPLE DATA — /setup replaces it with yours. Same contract as cyber:
+# the orchestrator plans from this file, the gate enforces it.
+
+track: web-dev
+display: Web Development
+
+defaults:
+  countries: [TR]
+  exclude_countries: []
+  exclude_boards: [djinni.co]
+  remote: anchored
+  relocation:
+    countries: [DE, NL]
+    requires: [visa_support]
+  employment: [full_time, contract]
+  seniority: [junior, mid]
+  max_age_days: 14
+
+intents:
+
+  - name: junior-web-developer
+    role: junior web / frontend developer
+    keywords:
+      - Web Developer
+      - Frontend Developer
+      - Junior Web Developer
+      - WordPress Developer
+    ai_search_hints:
+      - junior web developer jobs Türkiye
+      - frontend developer roles Türkiye
